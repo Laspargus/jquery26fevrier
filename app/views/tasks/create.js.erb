@@ -1,0 +1,29 @@
+
+
+
+
+var todolist = document.querySelector('div.container ul')
+
+var targets = document.querySelectorAll('div.container ul ul')
+
+var categories = document.getElementsByClassName("cat-title")
+
+
+//console.log(targets[1])
+
+
+var cat = '<%= @task.category.title %>'
+
+//console.log(cat)
+
+for (var i = 0; i < categories.length; ++i) {
+
+  if ( categories[i].textContent ==  cat ){
+  
+  	targets[i].insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")
+  }
+
+}
+
+
+

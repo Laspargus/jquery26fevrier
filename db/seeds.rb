@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+
+Task.destroy_all
+
 3.times do
   my_category = Category.create(title: Faker::Book.genre)
   3.times do
