@@ -104,6 +104,10 @@ objects.click(function(){
     
     //Je clone le title
     var obj = $(this).clone()
+
+    //J'ajoute un peu de CSS au Titre 
+    obj.css('font-weight','bold').css('background-color', '#FFFFFF').css('font-size', '22px')
+    
   
     //Je déplace le clone dans le body
      obj.prependTo(body)
