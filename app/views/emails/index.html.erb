@@ -42,17 +42,17 @@
     <div class="row">
      
 
-         <div class="col-md-4 table-bordered">
+         <div class="col-md-4 table-bordered" style="padding-left: 0px; padding-right: 0px; text-align: center;">
             
 		            	
 		            <% @emails.each_with_index do  |mail, index|%>
 		           		 <%if mail.read==false %>
 				           			 <%= link_to  email_path(mail), method: :patch, remote:true  do %>
-		 					 		 <div class="objects" style="background-color:#e3e3e3; color:#000000; text-decoration:none;" id="<%=mail.id%>" > <%=mail.object%> </div>
+		 					 		 <div class="objects" style="background-color:#f3f5f5; color:#000000; text-decoration:none;padding: 10px;" id="<%=mail.id%>" > <%=mail.object%> </div>
 									 <% end %>
 		           		<%else%>
 		           					<%= link_to email_path(mail), method: :patch, remote:true do %>
-		 					 		 <div class="objects" style="background-color:#FFFFFF; color:#000000;text-decoration:none;" id="<%=mail.id%>" > <%=mail.object%> </div>
+		 					 		 <div class="objects" style="background-color:#FFFFFF; color:#000000;text-decoration:none;padding: 10px;" id="<%=mail.id%>" > <%=mail.object%> </div>
 									 <% end %>
 
 						<%end%>			 
@@ -106,7 +106,7 @@ objects.click(function(){
     var obj = $(this).clone()
 
     //J'ajoute un peu de CSS au Titre 
-    obj.css('font-weight','bold').css('background-color', '#FFFFFF').css('font-size', '22px')
+    obj.css('font-weight','bold').css('background-color', '#FFFFFF').css('font-size', '22px').css('text-decoration', 'none!important')
     
   
     //Je déplace le clone dans le body
