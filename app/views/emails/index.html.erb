@@ -66,7 +66,7 @@
              <% @emails.each_with_index do  |mail, index|%>
 		            <div class="bodycontent" id="<%=mail.id%>"><%=mail.body%>   
 		            	<br><br>
-		            	 <%=link_to 'Delete' , email_path(mail), method: :delete , remote: true, id:mail.id , class: "btn btn-danger delete-email" %>
+		            	 <%=link_to 'Delete' , email_path(mail), method: :destroy , remote: true, id:mail.id , class: "btn btn-danger delete-email" %>
 		            	 </div> 
 		            	 		            	<%end%>
 
