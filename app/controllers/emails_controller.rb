@@ -16,9 +16,10 @@ class EmailsController < ApplicationController
   end
 
 def update
-    @email = Task.find(params[:id])
+    @email = Email.find(params[:id])
 
-    if @email.update(status:!@email.status)
+    if @email.update(read:!@email.read)
+
 
       respond_to do |format|
         format.html { redirect_to root_path }
