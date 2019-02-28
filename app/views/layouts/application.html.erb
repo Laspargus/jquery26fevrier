@@ -21,9 +21,11 @@
 
 <script>
 
-//EXERCICE 1 : DEROULER LES LISTES CENTRALES
 
-$("div.container ul li").click(function(){
+
+//EXERCICE 1 : DEROULER LES LISTES CENTRALES
+var title= $("div.container ul li");
+title.click(function(){
    $(this).next('div').toggle(400);   
 });
 
@@ -55,7 +57,7 @@ $('.mr-auto li').css('list-style-type','none')
 
 //STEP 4 : GENERER UN TOGGLE SUR LES PUCES
 
-$('.mr-auto li:not(.for-avatar').slideToggle()
+$('.mr-auto li:not(.for-avatar').hide()
 
 avatar.click(function(){
 $('.mr-auto li:not(.for-avatar').slideToggle()  ;
@@ -86,11 +88,120 @@ avatar.click(function(){
 hamburger.click(function(){
  
   menu.appendTo(hamburger)
-  menu.css('display', '')
+  //menu.css('display', '')
   avatar.css('display', 'none')
-  $('li:not(.for-avatar').slideToggle()  
+  $('li:not(.for-avatar').toggle()  
   
 })
+
+
+// SUPPRIMER LES TODOLIST
+
+// Supprimer si chécké
+$('.checkbox').click(function(){
+  console.log(this)
+
+  $(this).parent('li').toggle('puff');
+})
+
+
+// Supprimer si deleted
+$('.delete').click(function(){
+  console.log(this)
+
+  $(this).parent('li').toggle('puff');
+})
+
+
+
+
+//AFFICHER LE CONTENU DES MAILS 
+
+
+var objects = $('.objects')
+
+var target= $('.body')
+var bodycontent = $('.bodycontent')
+
+bodycontent.hide()
+console.log(target)
+
+
+
+
+objects.click(function(){
+
+
+    //je cache les autre bodys
+    bodycontent.hide()
+    //Je récupère l'id du mail
+    var id = event.target.id
+
+    //je récupère le bon contenu
+    body = $('#'+id+'.bodycontent')
+    
+    //Je clone le title
+    var obj = $(this).clone()
+  
+    //Je déplace le clone dans le body
+     obj.prependTo(body)
+
+    //j'affiche le contenu
+    body.fadeToggle() 
+
+})  
+
+
+
+
+
+//SUPPRIMER LES MAILS EN JQUERY
+
+// Supprimer si deleted
+$('.delete-email').click(function(){
+  console.log(this)
+
+//Supprimer le contenu du mail
+  $(this).parent('.bodycontent').toggle('puff');
+
+//récupérer l'id du mail
+ id_email = event.target.id
+ console.log(id_email)
+
+//Ponter vers le titre
+ title = $('#'+id_email+'.objects')
+ console.log(title)
+ title.toggle('puff')
+})
+
+
+
+
+
+//JAVASCRIPT
+
+/*
+var objects_js = document.getElementsByClassName('objects')
+
+var mailbody_js = "<%= j @emails.first.body %>"
+console.log(mailbody_js)
+
+var target_js = document.getElementsByClassName('body')
+console.log(target_js)
+target_js[0].innerHTML = mailbody_js;  
+
+
+for (var i = 0; i < objects_js.length; ++i) {
+  // do something with items[i], which is a <li> element
+
+}
+*/
+
+
+
+
+
+
 
 
 

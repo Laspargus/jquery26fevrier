@@ -1,5 +1,19 @@
-console.log('status bien changé')
 
-var links = document.getElementsByTagName("a[href^='/tasks/']");
 
-var content = 
+var links = document.getElementsByClassName("checkbox");
+var backid = <%= @task.id %>;
+var frontelement = document.getElementById(backid);
+
+
+
+if (frontelement.textContent=='check'){
+		frontelement.textContent='uncheck'
+		//frontelement..fadeOut()
+	}
+	else {
+			frontelement.textContent='check'
+	}
+
+
+
+

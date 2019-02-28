@@ -38,6 +38,7 @@ before_action :authenticate_user!
     @task = Task.find(params[:id])
 
     if @task.update(status:!@task.status)
+
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
@@ -50,12 +51,14 @@ end
     @tasks = Task.all
   end
 
-  def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to root_path
-  end
-
+def destroy
+  @task = Task.find(params[:id])
+  @task.destroy
+     # respond_to do |format|
+      #  format.html {  redirect_to root_path }
+       # format.js 
+     # end
+end
 
   private
 

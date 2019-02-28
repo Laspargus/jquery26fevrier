@@ -1,0 +1,36 @@
+
+
+
+<div class="container table-bordered">
+    <div class="row">
+     
+
+         <div class="col-md-4 table-bordered">
+            
+		            	<!-- Les objets -->
+		            <% @emails.each_with_index do  |mail, index|%>
+		            <%if mail.read==false %>
+		            <div class="objects" style="background-color:#e3e3e3;" id="<%=mail.id%>" > <%=mail.object%> </div>    
+		            <%else%>
+		            <div class="objects" style="background-color:#FFFFFF;"  id="<%=mail.id%>" > <%=mail.object%> </div>   
+		            <%end%>
+			<%end%>			
+        </div>	
+
+
+        <div class="col-md-8 table-bordered">
+        	
+            <div class="body"></div>   
+             <% @emails.each_with_index do  |mail, index|%>
+		            <div class="bodycontent" id="<%=mail.id%>"><%=mail.body%>   
+		            	<br><br>
+		            	 <%=link_to 'Delete' , email_path(mail), method: :delete , remote: true, id:mail.id , class: "btn btn-danger delete-email" %>
+		            	 </div> 
+		            	 		            	<%end%>
+
+        </div>
+    </div>
+</div>
+
+
+
