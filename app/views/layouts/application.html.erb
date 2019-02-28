@@ -115,69 +115,6 @@ $('.delete').click(function(){
 
 
 
-//AFFICHER LE CONTENU DES MAILS 
-
-
-var objects = $('.objects')
-
-var target= $('.body')
-var bodycontent = $('.bodycontent')
-
-bodycontent.hide()
-console.log(target)
-
-
-
-
-objects.click(function(){
-
-
-    //je cache les autre bodys
-    bodycontent.hide()
-    //Je récupère l'id du mail
-    var id = event.target.id
-
-    //je récupère le bon contenu
-    body = $('#'+id+'.bodycontent')
-    
-    //Je clone le title
-    var obj = $(this).clone()
-  
-    //Je déplace le clone dans le body
-     obj.prependTo(body)
-
-    //j'affiche le contenu
-    body.fadeToggle() 
-
-})  
-
-
-
-
-
-//SUPPRIMER LES MAILS EN JQUERY
-
-// Supprimer si deleted
-$('.delete-email').click(function(){
-  console.log(this)
-
-//Supprimer le contenu du mail
-  $(this).parent('.bodycontent').toggle('puff');
-
-//récupérer l'id du mail
- id_email = event.target.id
- console.log(id_email)
-
-//Ponter vers le titre
- title = $('#'+id_email+'.objects')
- console.log(title)
- title.toggle('puff')
-})
-
-
-
-
-
 //JAVASCRIPT
 
 /*
